@@ -19,8 +19,8 @@ Terraform module which creates a kinesis stream including alarms
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_alarm_label"></a> [alarm\_label](#module\_alarm\_label) | cloudposse/label/null | 0.25.0 |
-| <a name="module_kinesis_label"></a> [kinesis\_label](#module\_kinesis\_label) | cloudposse/label/null | 0.25.0 |
+| <a name="module_alarm_label"></a> [alarm\_label](#module\_alarm\_label) | justtrackio/label/null | 0.26.0 |
+| <a name="module_kinesis_label"></a> [kinesis\_label](#module\_kinesis\_label) | justtrackio/label/null | 0.26.0 |
 | <a name="module_this"></a> [this](#module\_this) | justtrackio/label/null | 0.26.0 |
 
 ## Resources

@@ -7,5 +7,5 @@ module "example" {
   name        = "kinesis"
   attributes  = ["foo"]
 
-  alarm_create = false
+  alarm_enabled = false
 }

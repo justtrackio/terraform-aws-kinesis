@@ -1,4 +1,4 @@
-variable "alarm_create" {
+variable "alarm_enabled" {
   type        = bool
   default     = true
   description = "Whether or not to create alarms"

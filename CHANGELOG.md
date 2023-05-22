@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/justtrackio/terraform-aws-kinesis/compare/v1.0.1...v1.0.2) (2023-05-22)
+
+
+### Bug Fixes
+
+* adjust alarm toggle variable ([#12](https://github.com/justtrackio/terraform-aws-kinesis/issues/12)) ([5f87b09](https://github.com/justtrackio/terraform-aws-kinesis/commit/5f87b09a5efe1ebb59c0bcf8ec10d9f6d8dba82a))
+
 ## [1.0.1](https://github.com/justtrackio/terraform-aws-kinesis/compare/v1.0.0...v1.0.1) (2023-05-15)
 
 

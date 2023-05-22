@@ -4,7 +4,7 @@ module "alarm_label" {
 
   context     = module.this.context
   label_order = var.label_orders.cloudwatch
-  enabled     = var.alarm_create
+  enabled     = var.alarm_enabled
 }
 
 resource "aws_cloudwatch_metric_alarm" "read_bytes_high" {

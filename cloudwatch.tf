@@ -1,3 +1,7 @@
+locals {
+  alarm_topic_arn = var.alarm_topic_arn != null ? var.alarm_topic_arn : "arn:aws:sns:${module.this.aws_region}:${module.this.aws_account_id}:${module.this.environment}-alarms"
+}
+
 module "alarm_label" {
   source  = "justtrackio/label/null"
   version = "0.26.0"
@@ -30,8 +34,8 @@ resource "aws_cloudwatch_metric_alarm" "read_bytes_high" {
     StreamName = aws_kinesis_stream.default.name
   }
 
-  alarm_actions = [var.alarm_topic_arn]
-  ok_actions    = [var.alarm_topic_arn]
+  alarm_actions = [local.alarm_topic_arn]
+  ok_actions    = [local.alarm_topic_arn]
 }
 
 resource "aws_cloudwatch_metric_alarm" "write_bytes_high" {
@@ -57,8 +61,8 @@ resource "aws_cloudwatch_metric_alarm" "write_bytes_high" {
     StreamName = aws_kinesis_stream.default.name
   }
 
-  alarm_actions = [var.alarm_topic_arn]
-  ok_actions    = [var.alarm_topic_arn]
+  alarm_actions = [local.alarm_topic_arn]
+  ok_actions    = [local.alarm_topic_arn]
 }
 
 resource "aws_cloudwatch_metric_alarm" "write_records_high" {
@@ -84,8 +88,8 @@ resource "aws_cloudwatch_metric_alarm" "write_records_high" {
     StreamName = aws_kinesis_stream.default.name
   }
 
-  alarm_actions = [var.alarm_topic_arn]
-  ok_actions    = [var.alarm_topic_arn]
+  alarm_actions = [local.alarm_topic_arn]
+  ok_actions    = [local.alarm_topic_arn]
 }
 
 resource "aws_cloudwatch_metric_alarm" "iterator_age_high" {
@@ -111,8 +115,8 @@ resource "aws_cloudwatch_metric_alarm" "iterator_age_high" {
     StreamName = aws_kinesis_stream.default.name
   }
 
-  alarm_actions = [var.alarm_topic_arn]
-  ok_actions    = [var.alarm_topic_arn]
+  alarm_actions = [local.alarm_topic_arn]
+  ok_actions    = [local.alarm_topic_arn]
 }
 
 resource "aws_cloudwatch_metric_alarm" "put_records_success_rate" {
@@ -167,8 +171,8 @@ resource "aws_cloudwatch_metric_alarm" "put_records_success_rate" {
     return_data = true
   }
 
-  alarm_actions = [var.alarm_topic_arn]
-  ok_actions    = [var.alarm_topic_arn]
+  alarm_actions = [local.alarm_topic_arn]
+  ok_actions    = [local.alarm_topic_arn]
 }
 
 resource "aws_cloudwatch_metric_alarm" "get_records_success_rate" {
@@ -194,6 +198,6 @@ resource "aws_cloudwatch_metric_alarm" "get_records_success_rate" {
     StreamName = aws_kinesis_stream.default.name
   }
 
-  alarm_actions = [var.alarm_topic_arn]
-  ok_actions    = [var.alarm_topic_arn]
+  alarm_actions = [local.alarm_topic_arn]
+  ok_actions    = [local.alarm_topic_arn]
 }

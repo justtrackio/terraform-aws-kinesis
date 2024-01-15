@@ -1,3 +1,10 @@
+## [1.1.0](https://github.com/justtrackio/terraform-aws-kinesis/compare/v1.0.2...v1.1.0) (2024-01-15)
+
+
+### Features
+
+* add alarm topic arn convention ([#21](https://github.com/justtrackio/terraform-aws-kinesis/issues/21)) ([4595f54](https://github.com/justtrackio/terraform-aws-kinesis/commit/4595f544814a27a94a5cff6dfc8579c6b064e670))
+
 ## [1.0.2](https://github.com/justtrackio/terraform-aws-kinesis/compare/v1.0.1...v1.0.2) (2023-05-22)
 
 

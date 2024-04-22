@@ -19,3 +19,25 @@ resource "aws_kinesis_stream" "default" {
     stream_mode = var.shard_count != null ? "PROVISIONED" : "ON_DEMAND"
   }
 }
+
+data "aws_iam_policy_document" "policy" {
+  count = length(var.policy_allowed_principals) > 0 && length(var.policy_allowed_actions) > 0 ? 1 : 0
+
+  statement {
+    effect  = "Allow"
+    actions = var.policy_allowed_actions
+    principals {
+      identifiers = var.policy_allowed_principals
+      type        = "AWS"
+    }
+    resources = [aws_kinesis_stream.default.arn]
+  }
+}
+
+resource "aws_kinesis_resource_policy" "policy" {
+  count = length(var.policy_allowed_principals) > 0 && length(var.policy_allowed_actions) > 0 ? 1 : 0
+
+  resource_arn = aws_kinesis_stream.default.arn
+
+  policy = data.aws_iam_policy_document.policy[0].json
+}

@@ -157,6 +157,26 @@ variable "label_orders" {
   description = "Overrides the `labels_order` for the different labels to modify ID elements appear in the `id`"
 }
 
+variable "policy_allowed_principals" {
+  type        = list(string)
+  description = "Which AWS principal to allow access to this stream"
+  default     = []
+}
+
+variable "policy_allowed_actions" {
+  type        = list(string)
+  description = "Which AWS Kinesis actions to allow on this stream"
+  default = [
+    "kinesis:DescribeStream",
+    "kinesis:DescribeStreamSummary",
+    "kinesis:GetRecords",
+    "kinesis:GetShardIterator",
+    "kinesis:PutRecord",
+    "kinesis:PutRecords",
+    "kinesis:ListShards"
+  ]
+}
+
 variable "retention_period" {
   type        = number
   description = "Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24"

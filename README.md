@@ -7,13 +7,13 @@ Terraform module which creates a kinesis stream including alarms
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3.0 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 4.67 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 5.46 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 4.67 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 5.46 |
 
 ## Modules
 
@@ -33,7 +33,9 @@ Terraform module which creates a kinesis stream including alarms
 | [aws_cloudwatch_metric_alarm.read_bytes_high](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_metric_alarm) | resource |
 | [aws_cloudwatch_metric_alarm.write_bytes_high](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_metric_alarm) | resource |
 | [aws_cloudwatch_metric_alarm.write_records_high](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_metric_alarm) | resource |
+| [aws_kinesis_resource_policy.policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/kinesis_resource_policy) | resource |
 | [aws_kinesis_stream.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/kinesis_stream) | resource |
+| [aws_iam_policy_document.policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
 
 ## Inputs
 
@@ -68,6 +70,8 @@ Terraform module which creates a kinesis stream including alarms
 | <a name="input_name"></a> [name](#input\_name) | ID element. Usually the component or solution name, e.g. 'app' or 'jenkins'.<br>This is the only ID element not also included as a `tag`.<br>The "name" tag is set to the full `id` string. There is no tag with the value of the `name` input. | `string` | `null` | no |
 | <a name="input_namespace"></a> [namespace](#input\_namespace) | ID element. Usually an abbreviation of your organization name, e.g. 'eg' or 'cp', to help ensure generated IDs are globally unique | `string` | `null` | no |
 | <a name="input_organizational_unit"></a> [organizational\_unit](#input\_organizational\_unit) | Usually used to indicate the AWS organizational unit, e.g. 'prod', 'sdlc' | `string` | `null` | no |
+| <a name="input_policy_allowed_actions"></a> [policy\_allowed\_actions](#input\_policy\_allowed\_actions) | Which AWS Kinesis actions to allow on this stream | `list(string)` | <pre>[<br>  "kinesis:DescribeStream",<br>  "kinesis:DescribeStreamSummary",<br>  "kinesis:GetRecords",<br>  "kinesis:GetShardIterator",<br>  "kinesis:PutRecord",<br>  "kinesis:PutRecords",<br>  "kinesis:ListShards"<br>]</pre> | no |
+| <a name="input_policy_allowed_principals"></a> [policy\_allowed\_principals](#input\_policy\_allowed\_principals) | Which AWS principal to allow access to this stream | `list(string)` | `[]` | no |
 | <a name="input_regex_replace_chars"></a> [regex\_replace\_chars](#input\_regex\_replace\_chars) | Terraform regular expression (regex) string.<br>Characters matching the regex will be removed from the ID elements.<br>If not set, `"/[^a-zA-Z0-9-]/"` is used to remove all characters other than hyphens, letters and digits. | `string` | `null` | no |
 | <a name="input_retention_period"></a> [retention\_period](#input\_retention\_period) | Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24 | `number` | `null` | no |
 | <a name="input_shard_count"></a> [shard\_count](#input\_shard\_count) | The number of shards that the stream will use. If the stream\_mode is PROVISIONED, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream | `number` | `null` | no |

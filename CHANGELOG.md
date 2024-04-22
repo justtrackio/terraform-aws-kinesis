@@ -1,3 +1,10 @@
+## [1.2.0](https://github.com/justtrackio/terraform-aws-kinesis/compare/v1.1.0...v1.2.0) (2024-04-22)
+
+
+### Features
+
+* add kinesis stream policy ([#41](https://github.com/justtrackio/terraform-aws-kinesis/issues/41)) ([d4e7eaa](https://github.com/justtrackio/terraform-aws-kinesis/commit/d4e7eaaf45316287221e4596cba6fefae88cb2d2))
+
 ## [1.1.0](https://github.com/justtrackio/terraform-aws-kinesis/compare/v1.0.2...v1.1.0) (2024-01-15)
 
 
